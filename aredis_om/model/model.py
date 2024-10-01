@@ -1876,7 +1876,7 @@ class HashModel(RedisModel, abc.ABC):
             for embedded_name, field in typ.__fields__.items():
                 sub_fields.append(
                     cls.schema_for_type(
-                        f"{name}_{embedded_name}", field.outer_type_, field.field_info
+                        f"{name}_{embedded_name}", field.annotation, field
                     )
                 )
             schema = " ".join(sub_fields)
